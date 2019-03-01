@@ -13,6 +13,17 @@ namespace WebApiQuiz.Repository{
                this.iDBContext =iDBContext;
         }
 
+        public TblMstQuestions addQuestion(TblMstQuestions ques)
+        {
+            ques.CreatedBy = "19379";
+            ques.CreatedOn = System.DateTime.Now;
+            //Console.WriteLine(ques);
+            iDBContext.Add(ques);
+            iDBContext.SaveChanges();
+            return ques;
+            //throw new NotImplementedException();
+        }
+
         public List<TblMstQuestions> getALL()
         {
             

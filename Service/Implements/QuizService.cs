@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using WebApiQuiz.Models;
 using WebApiQuiz.Repository;
 
 
@@ -84,6 +85,21 @@ namespace WebApiQuiz.Service{
 
             }catch(Exception ex){
                 Console.WriteLine("------------------------  " +ex.Message);
+                return null;
+            }
+        }
+
+        public string addQuestion(TblMstQuestions ques)
+        {
+            try{
+                var result = this.iQuestionsRepository.addQuestion(ques);
+
+                return JsonConvert.SerializeObject(result);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
                 return null;
             }
         }

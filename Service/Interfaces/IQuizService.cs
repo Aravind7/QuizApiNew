@@ -9,5 +9,7 @@ public  interface IQuizService
    string GetQustionBundle(int id);
    string GetALL();
 
+   string addQuestion (TblMstQuestions ques);
+
 }
 }

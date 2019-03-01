@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApiQuiz.Service;
+using WebApiQuiz.Models;
 
 namespace WebApiQuiz.Controllers
 {
@@ -53,6 +54,14 @@ namespace WebApiQuiz.Controllers
         public IActionResult Get(int id)
         {
             return Ok(iQuizService.GetQustionBundle(id));
+        }
+
+        [HttpPost]
+        public IActionResult addQuestion([FromBody] TblMstQuestions questions)
+        {
+            var addQuestion = iQuizService.addQuestion(questions);
+
+            return Ok(addQuestion);
         }
        
     }

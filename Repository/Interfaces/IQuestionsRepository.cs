@@ -7,5 +7,7 @@ public  interface IQuestionsRepository
 {
       List<TblMstQuestions> getALL();
        List<TblMstQuestions> getBy(int id);
+
+       TblMstQuestions addQuestion (TblMstQuestions ques);
 }
 }
